@@ -358,7 +358,7 @@ class Git(FetchMethod):
         """
         output = self._lsremote(ud, d, "")
         # Tags of the form ^{} may not work, need to fallback to other form
-        if ud.unresolvedrev[name][:5] == "refs/":
+        if ud.unresolvedrev[name][:5] == "refs/" or ud.unresolvedrev[name] == "HEAD":
             head = ud.unresolvedrev[name]
             tag = ud.unresolvedrev[name]
         else:
